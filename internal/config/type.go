@@ -10,9 +10,15 @@ const (
 
 // Config Required type for MustLoad function
 type Config struct {
-	Env         string `yaml:"env" env-default:"local"`
-	StoragePath string `yaml:"storage_path" env-required:"true"`
-	HTTPServer  `yaml:"http_server"`
+	Env        string `yaml:"env" env-default:"local"`
+	HTTPServer `yaml:"http_server"`
+	Postgres   `yaml:"postgres"`
+}
+
+type Postgres struct {
+	Name     string `yaml:"db" env-required:"true"`
+	User     string `yaml:"user" env-required:"true"`
+	Password string `yaml:"password" env-required:"true"`
 }
 
 type HTTPServer struct {
