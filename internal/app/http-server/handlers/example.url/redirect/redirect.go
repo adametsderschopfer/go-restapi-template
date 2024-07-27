@@ -1,15 +1,15 @@
 package redirect
 
 import (
+	resp "app/internal/lib/api/response"
+	"app/internal/lib/logger/sl"
+	"app/internal/repository"
 	"errors"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
 	"log/slog"
 	"net/http"
-	resp "url-shortener/internal/lib/api/response"
-	"url-shortener/internal/lib/logger/sl"
-	"url-shortener/internal/storage"
 )
 
 type UrlGetter interface {
@@ -34,7 +34,7 @@ func New(log *slog.Logger, urlGetter UrlGetter) http.HandlerFunc {
 
 		resUrl, err := urlGetter.GetUrlByAlias(alias)
 		if err != nil {
-			if errors.Is(err, storage.ErrURLNotFound) {
+			if errors.Is(err, repository.ErrURLNotFound) {
 				log.Info("Url not found", sl.Err(err))
 				render.JSON(writer, request, resp.Error("Url not found"))
 				return

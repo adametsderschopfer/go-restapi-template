@@ -1,12 +1,12 @@
 package main
 
 import (
+	"app/internal/app"
+	"app/internal/config"
+	"app/internal/lib/logger/handlers/slogpretty"
 	"log/slog"
 	"net/http"
 	"os"
-	"url-shortener/internal/app"
-	"url-shortener/internal/config"
-	"url-shortener/internal/lib/logger/handlers/slogpretty"
 )
 
 func main() {

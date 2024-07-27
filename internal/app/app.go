@@ -1,12 +1,12 @@
 package app
 
 import (
+	"app/internal/config"
+	"app/internal/lib/logger/sl"
+	"app/internal/repository/sqllite"
 	"log/slog"
 	"net/http"
 	"os"
-	"url-shortener/internal/config"
-	"url-shortener/internal/lib/logger/sl"
-	"url-shortener/internal/storage/sqllite"
 )
 
 type App struct {
@@ -17,7 +17,7 @@ type App struct {
 }
 
 func (app *App) New() {
-	//storage := app.MustDatabaseLoad()
+	//repository := app.MustDatabaseLoad()
 
 	app.Router = app.createRouter()
 }
@@ -25,7 +25,7 @@ func (app *App) New() {
 func (app *App) MustDatabaseLoad() *sqllite.Storage {
 	storage, err := sqllite.New(app.Cfg.StoragePath)
 	if err != nil {
-		app.Log.Error("Failed to init storage", sl.Err(err))
+		app.Log.Error("Failed to init repository", sl.Err(err))
 		os.Exit(1)
 	}
 	return storage
