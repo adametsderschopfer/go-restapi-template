@@ -17,8 +17,9 @@ func (app *App) createRouter() http.Handler {
 	router.Use(middleware.Recoverer)
 	router.Use(middleware.URLFormat)
 
-	//router.Post("/create-url", save.New(app.Log, repository))
-	//router.Get("/{alias}", redirect.New(app.Log, repository))
+	/*Example routes*/
+	//router.Post("/create-url", save.New(app.Log, app.repository))
+	//router.Get("/{alias}", redirect.New(app.Log, app.repository))
 
 	return router
 }
