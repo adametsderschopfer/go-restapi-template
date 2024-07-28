@@ -4,15 +4,12 @@ services:
   postgres:
     container_name: postgres_container
     image: postgres
-    environment:
-      POSTGRES_DB: app_database
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: test_password
-      PGDATA: /data/postgres
+    env_file:
+      - .env.docker.local
     volumes:
       - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - "5430:5432"
     networks:
       - postgres
     restart: unless-stopped
@@ -20,10 +17,8 @@ services:
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@service.example"
-      PGADMIN_DEFAULT_PASSWORD: "h|Ul0}O%g160"
-      PGADMIN_CONFIG_SERVER_MODE: "False"
+    env_file:
+      - .env.docker.local
     volumes:
       - pgadmin:/var/lib/pgadmin
 
