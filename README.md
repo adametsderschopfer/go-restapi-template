@@ -1,5 +1,8 @@
 # Go Rest Api Template
 
+# Migrations
+
+
 # Locale Development 
 
 ## Docker Compose Local environments

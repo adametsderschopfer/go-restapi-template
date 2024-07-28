@@ -1,6 +1,8 @@
 package postgresql
 
+import "C"
 import (
+	"app/internal/config"
 	"app/internal/repository"
 	"database/sql"
 	"errors"
@@ -21,6 +23,19 @@ func New(connectionString string) (*Repository, error) {
 	}
 
 	return &Repository{db: db}, nil
+}
+
+func CreateConnectionString(cfg *config.Config) string {
+	return fmt.Sprintf(
+		"postgres://%s:%s@%s:%d/%s?sslmode=%s",
+		cfg.Postgres.User,
+		cfg.Postgres.Password,
+		cfg.Postgres.Host,
+		cfg.Postgres.Port,
+		cfg.Postgres.DBName,
+		cfg.Postgres.SSLMode,
+	)
+
 }
 
 /*
