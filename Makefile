@@ -4,8 +4,8 @@
 build-app:
 	go build  -o ./bin/app ./cmd/app/main.go
 
-build-migrator:
-	go build  -o ./bin/migrator ./cmd/migrator/main.go
+build-migrator-up:
+	go build  -o ./bin/migrator/up ./cmd/migrator/up/main.go
 
 # Run commands
 run-app-local:
@@ -15,11 +15,11 @@ run-app-local:
 run-app-prod:
 	CONFIG_PATH=./config/prod.yaml ./bin/app
 
-run-migrator-local:
-	CONFIG_PATH=./config/local.yaml ./bin/migrator
+run-migrate-up-local:
+	CONFIG_PATH=./config/local.yaml ./bin/migrator/up
 
-run-migrator-prod:
-	CONFIG_PATH=./config/prod.yaml ./bin/migrator
+run-migrate-up-prod:
+	CONFIG_PATH=./config/prod.yaml ./bin/migrator/up
 
 
 .DEFAULT_GOAL := build-app
