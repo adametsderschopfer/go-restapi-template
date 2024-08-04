@@ -8,17 +8,17 @@ To launch the application do the following
 3. Run the application launch command ```$ make run-app-local``` or ```$ make run-app-prod```
 
 # Migrations
-To deploy migrations, you can use the cmd/migrator tool  
+To deploy migrations, you can use the cmd/migrator tool
 
 It is based on the tool https://github.com/golang-migrate/migrate for this occasion you can use the commands from this library
 
 For work, you need:
 1. Set up the local/prod configuration file
-   1. Create migrations if they don't exist yet
+    1. Create migrations if they don't exist yet
 2. Build a tool for rolling up migrations with the command ```$ make build-migrator-up```
 3. Run migrations using the command ```$ make run-migrate-up-local``` or ```$ make run-migrate-up-prod```
 
-# Locale Development 
+# Locale Development
 
 ### Docker Compose Local environments
 Docker Compose Local file contains the following environment variables:

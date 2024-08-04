@@ -2,7 +2,7 @@ package main
 
 import (
 	"app/internal/config"
-	"app/internal/repository/postgresql"
+	"app/pkg/database/postgresql"
 	"errors"
 	"fmt"
 	"github.com/golang-migrate/migrate/v4"
