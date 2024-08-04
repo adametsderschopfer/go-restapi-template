@@ -21,6 +21,4 @@ type User struct {
 	 */
 	SubscribersCount   int `json:"subscribersCount"`
 	SubscriptionsCount int `json:"subscriptionsCount"`
-
-	Settings UserSettings `json:"userSettings"`
 }
