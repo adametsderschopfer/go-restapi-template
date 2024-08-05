@@ -6,9 +6,9 @@ import (
 	"app/internal/service"
 	"app/internal/transport/http"
 	"app/internal/transport/http/handler"
-	"app/pkg/database/postgresql"
-	"app/pkg/logger/handlers/slogpretty"
-	"app/pkg/logger/sl"
+	"app/pkg/infra/database/postgresql"
+	"app/pkg/infra/logger/handlers/slogpretty"
+	"app/pkg/infra/logger/sl"
 	"log/slog"
 	"os"
 )
