@@ -5,7 +5,7 @@ type Repositories struct {
 }
 
 type IExampleRepo interface {
-	Create(name string)
+	Create(name string) string
 	Update()
 	Delete()
 	GetList()
