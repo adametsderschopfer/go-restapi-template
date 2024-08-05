@@ -22,6 +22,8 @@ func (app *App) New() {
 	cfg := config.MustLoad()
 	log := setupLogger(cfg.Env)
 
+	app.Cfg = cfg
+
 	log.Info("Starting application", slog.String("env", cfg.Env))
 
 	// Dependencies
