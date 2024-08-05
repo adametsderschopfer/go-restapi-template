@@ -2,7 +2,7 @@ package handler
 
 import (
 	"app/internal/service"
-	"app/pkg/http-server/middleware/logger"
+	"app/pkg/infra/http-server/middleware/logger"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"log/slog"
