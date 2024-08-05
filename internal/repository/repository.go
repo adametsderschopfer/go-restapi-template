@@ -2,20 +2,10 @@ package repository
 
 import (
 	"app/internal/repository/postgresql"
+	"app/internal/repository/repos"
 	"database/sql"
 )
 
-type IExampleRepo interface {
-	Create(name string)
-	Update()
-	Delete()
-	GetList()
-}
-
-type Repositories struct {
-	Example IExampleRepo
-}
-
-func NewRepositories(db *sql.DB) *Repositories {
+func NewRepositories(db *sql.DB) *repos.Repositories {
 	return postgresql.NewPostgresqlRepositories(db)
 }

@@ -1,12 +1,12 @@
 package postgresql
 
 import (
-	"app/internal/repository"
+	"app/internal/repository/repos"
 	"database/sql"
 )
 
-func NewPostgresqlRepositories(db *sql.DB) *repository.Repositories {
-	return &repository.Repositories{
+func NewPostgresqlRepositories(db *sql.DB) *repos.Repositories {
+	return &repos.Repositories{
 		Example: NewExampleRepo(db),
 	}
 }
